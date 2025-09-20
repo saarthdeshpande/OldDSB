@@ -7,9 +7,25 @@ metadata:
   labels:
     socialnetwork/service: user-timeline-redis
 data:
-  redis.conf: |    
+  redis.conf: |
+    maxmemory 768mb
+    
+    maxmemory-policy allkeys-lru
+    # Make frees/expirations non-blocking
+    lazyfree-lazy-eviction yes
+    lazyfree-lazy-expire yes
+    lazyfree-lazy-server-del yes
+    
+    save ""                # cache tier
+    appendonly no
+    client-output-buffer-limit normal 16mb 8mb 60
+    client-output-buffer-limit pubsub 8mb 4mb 60
+    client-query-buffer-limit 16mb
+    tcp-backlog 511
+    tcp-keepalive 60
+  
     io-threads 8
-    io-threads-do-reads yes
+    io-threads-do-reads no
     port 6379
     tls-port 0
     
