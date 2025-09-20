@@ -21,124 +21,125 @@ parser.add_argument("-v", "--version", default="old")
 
 args = parser.parse_args()
 
-metric_folders = ["cpu_memory_"]
+metric_folders = ["cpu_"]
 dfs = {folder: [] for folder in metric_folders}
 
 print(f"Reading all metric folders in {os.getcwd()}")
 for metric_folder_name in metric_folders:
-    for filename in glob.glob(f"{metric_folder_name}/*service.txt"):
-        with open(filename, 'r') as file:
-            lines = file.readlines()
-            metric_values = []
-            metric_names = []
-            multiple_metric_values = {}
-            replicas = []
-            times = []
-            thresholds = []
+    for filename in glob.glob(f"{metric_folder_name}/*.txt"):
+        if not filename.endswith('rps.txt'):
+            with open(filename, 'r') as file:
+                lines = file.readlines()
+                metric_values = []
+                metric_names = []
+                multiple_metric_values = {}
+                replicas = []
+                times = []
+                thresholds = []
 
-            multiple_metrics = metric_folder_name.count('_') > 1
-            if multiple_metrics is True:
-                metric_names = list(filter(None, metric_folder_name.split("_")))
+                multiple_metrics = metric_folder_name.count('_') > 1
+                if multiple_metrics is True:
+                    metric_names = list(filter(None, metric_folder_name.split("_")))
 
-            # Parse each line
-            for index, line in enumerate(lines[1:]):  # Skip the header line
-                parts = line.split()
-                # print(parts)
-                if index == 0 and parts[len(parts) - 1].startswith('5'):
-                    continue
-                if args.version == "old":
-                    if len(parts) == 7: # single metric
-                        metric_match = re.search(r'(\d+)%/(\d+)%|(<unknown>)/(\d+)%', parts[2])
-                        if metric_match:
-                            metric_value = metric_match.group(1) or metric_match.group(3)
-                            metric_value = int(metric_value) if metric_value and metric_value.isdigit() else None
-                            if len(thresholds) == 0:
-                                threshold = metric_match.group(2) or metric_match.group(4)
-                                if len(thresholds) == 0:
-                                    thresholds = [int(threshold)] if threshold else []
-                        else:
-                            metric_value = None
-                        metric_values.append(metric_value)
-
-                    else:
-                        n_metrics = len(parts) - 6
-                        thresholds = [None] * n_metrics
-                        for metric_number in range(n_metrics):
-                            metric_match = re.search(r'(\d+)%/(\d+)%|(<unknown>)/(\d+)%', parts[2 + metric_number])
-
+                # Parse each line
+                for index, line in enumerate(lines[1:]):  # Skip the header line
+                    parts = line.split()
+                    # print(parts)
+                    if index == 0 and parts[len(parts) - 1].startswith('5'):
+                        continue
+                    if args.version == "old":
+                        if len(parts) == 7: # single metric
+                            metric_match = re.search(r'(\d+)%/(\d+)%|(<unknown>)/(\d+)%', parts[2])
                             if metric_match:
                                 metric_value = metric_match.group(1) or metric_match.group(3)
                                 metric_value = int(metric_value) if metric_value and metric_value.isdigit() else None
-                                if thresholds[n_metrics - 1] is None:
+                                if len(thresholds) == 0:
                                     threshold = metric_match.group(2) or metric_match.group(4)
-                                    thresholds[metric_number] = int(threshold) if threshold else None
+                                    if len(thresholds) == 0:
+                                        thresholds = [int(threshold)] if threshold else []
+                            else:
+                                metric_value = None
+                            metric_values.append(metric_value)
+
+                        else:
+                            n_metrics = len(parts) - 6
+                            thresholds = [None] * n_metrics
+                            for metric_number in range(n_metrics):
+                                metric_match = re.search(r'(\d+)%/(\d+)%|(<unknown>)/(\d+)%', parts[2 + metric_number])
+
+                                if metric_match:
+                                    metric_value = metric_match.group(1) or metric_match.group(3)
+                                    metric_value = int(metric_value) if metric_value and metric_value.isdigit() else None
+                                    if thresholds[n_metrics - 1] is None:
+                                        threshold = metric_match.group(2) or metric_match.group(4)
+                                        thresholds[metric_number] = int(threshold) if threshold else None
+                                else:
+                                    metric_value = None
+
+                                if metric_names[metric_number] in multiple_metric_values.keys():
+                                    multiple_metric_values[metric_names[metric_number]].append(metric_value)
+                                else:
+                                    multiple_metric_values[metric_names[metric_number]] = [metric_value]
+                    elif args.version == "new":
+                        n_metrics = (len(parts) - 6) // 2  # Calculate metrics based on new structure
+                        thresholds = [None] * n_metrics
+
+                        for metric_number in range(n_metrics):
+                            # Extract metric name and value from paired elements
+                            name_index = 2 + (2 * metric_number)
+                            value_index = 3 + (2 * metric_number)
+
+                            metric_name = parts[name_index].rstrip(':')  # Remove trailing colon
+                            value_part = parts[value_index]
+
+                            # Pattern matching for metric values
+                            metric_match = re.search(r'(\d+)%/(\d+)%|(<unknown>)/(\d+)%', value_part)
+                            if metric_match:
+                                metric_value = metric_match.group(1) or metric_match.group(3)
+                                metric_value = int(metric_value) if metric_value and metric_value.isdigit() else None
+                                threshold = metric_match.group(2) or metric_match.group(4)
+                                thresholds[metric_number] = int(threshold) if threshold else None
                             else:
                                 metric_value = None
 
-                            if metric_names[metric_number] in multiple_metric_values.keys():
-                                multiple_metric_values[metric_names[metric_number]].append(metric_value)
+                            metric_names.append(metric_name)
+                            metric_values.append(metric_value)
+                            # Store in metric dictionary
+                            if metric_name in multiple_metric_values:
+                                multiple_metric_values[metric_name].append(metric_value)
                             else:
-                                multiple_metric_values[metric_names[metric_number]] = [metric_value]
-                elif args.version == "new":
-                    n_metrics = (len(parts) - 6) // 2  # Calculate metrics based on new structure
-                    thresholds = [None] * n_metrics
+                                multiple_metric_values[metric_name] = [metric_value]
 
+                    replica = int(parts[len(parts) - 2])
+                    time = parts[len(parts) - 1]
+                    replicas.append(replica)
+                    times.append(time)
+
+                if multiple_metrics is True:
+                    metric_keys = []
                     for metric_number in range(n_metrics):
-                        # Extract metric name and value from paired elements
-                        name_index = 2 + (2 * metric_number)
-                        value_index = 3 + (2 * metric_number)
+                        metric_keys.append(metric_names[metric_number] + "_" + filename.split('/')[1].split('.')[0])
 
-                        metric_name = parts[name_index].rstrip(':')  # Remove trailing colon
-                        value_part = parts[value_index]
+                    metric_dict = {}
+                    for index, key in enumerate(metric_keys):
+                        metric_dict[key] = multiple_metric_values[metric_names[index]]
+                        metric_dict[metric_names[index] + "_" + filename.split('/')[1].split('.')[0] + "_scaling_threshold"] = thresholds[index]
 
-                        # Pattern matching for metric values
-                        metric_match = re.search(r'(\d+)%/(\d+)%|(<unknown>)/(\d+)%', value_part)
-                        if metric_match:
-                            metric_value = metric_match.group(1) or metric_match.group(3)
-                            metric_value = int(metric_value) if metric_value and metric_value.isdigit() else None
-                            threshold = metric_match.group(2) or metric_match.group(4)
-                            thresholds[metric_number] = int(threshold) if threshold else None
-                        else:
-                            metric_value = None
+                    updated_dict = dict(metric_dict, **{f"replicas_{filename.split('/')[1].split('.')[0]}": replicas, 'time': times})
 
-                        metric_names.append(metric_name)
-                        metric_values.append(metric_value)
-                        # Store in metric dictionary
-                        if metric_name in multiple_metric_values:
-                            multiple_metric_values[metric_name].append(metric_value)
-                        else:
-                            multiple_metric_values[metric_name] = [metric_value]
+                    df = pd.DataFrame(updated_dict)
+                else:
+                    # print(metric_values, replicas, times, filename)
+                    df = pd.DataFrame({
+                        f"{metric_folder_name + filename.split('/')[1].split('.')[0]}": metric_values,
+                        f"replicas_{filename.split('/')[1].split('.')[0]}": replicas,
+                        'time': times
+                    })
 
-                replica = int(parts[len(parts) - 2])
-                time = parts[len(parts) - 1]
-                replicas.append(replica)
-                times.append(time)
-
-            if multiple_metrics is True:
-                metric_keys = []
-                for metric_number in range(n_metrics):
-                    metric_keys.append(metric_names[metric_number] + "_" + filename.split('/')[1].split('.')[0])
-
-                metric_dict = {}
-                for index, key in enumerate(metric_keys):
-                    metric_dict[key] = multiple_metric_values[metric_names[index]]
-                    metric_dict[metric_names[index] + "_" + filename.split('/')[1].split('.')[0] + "_scaling_threshold"] = thresholds[index]
-
-                updated_dict = dict(metric_dict, **{f"replicas_{filename.split('/')[1].split('.')[0]}": replicas, 'time': times})
-
-                df = pd.DataFrame(updated_dict)
-            else:
-                print(metric_values, replicas, times, filename)
-                df = pd.DataFrame({
-                    f"{metric_folder_name + filename.split('/')[1].split('.')[0]}": metric_values,
-                    f"replicas_{filename.split('/')[1].split('.')[0]}": replicas,
-                    'time': times
-                })
-
-                # Add the scaling threshold column
-                df[f"{metric_folder_name + filename.split('/')[1].split('.')[0]}_scaling_threshold"] = thresholds[0]
-            # Display the DataFrame
-            dfs[metric_folder_name].append(df)
+                    # Add the scaling threshold column
+                    df[f"{metric_folder_name + filename.split('/')[1].split('.')[0]}_scaling_threshold"] = thresholds[0]
+                # Display the DataFrame
+                dfs[metric_folder_name].append(df)
 
 print("Read successful.")
 
@@ -363,8 +364,8 @@ rps_dfs = {r: pd.DataFrame(rps[r]) for r in rps.keys()}
 
 print("Merging dataframes for all microservices into one dataframe.")
 # merge dataframes for all microservices into one dataframe
-print(rps_dfs["cpu_memory_"])
-print(dfs["cpu_memory_"][0])
+# print(rps_dfs["cpu_"])
+# print(dfs["cpu_"][0])
 # merge_dfs = lambda dfs_list: reduce(lambda left, right: pd.merge(left, right, on='time', how='outer'), dfs_list)
 merge_dfs = lambda dfs_list: reduce(lambda left, right: pd.merge(
     left.drop('time', axis=1), right, left_index=True, right_index=True, how='inner'), dfs_list)

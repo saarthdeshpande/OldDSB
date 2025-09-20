@@ -9,7 +9,7 @@ metadata:
     io.kompose.service: rate
   name: rate
 spec:
-  replicas: 1
+
   selector:
     matchLabels:
       io.kompose.service: rate
@@ -34,8 +34,8 @@ spec:
             - containerPort: 8084
           resources:
             requests:
-              cpu: 2000m
+              cpu: 500m
             limits:
-              cpu: 4000m
+              cpu: 1000m
       restartPolicy: Always
 status: {}

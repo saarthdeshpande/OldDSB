@@ -1,6 +1,6 @@
 flags=("-cm")
 
-#flags=("-m")
+#flags=("-m -cm")
 
 if [ $# -eq 0 ];
 then
