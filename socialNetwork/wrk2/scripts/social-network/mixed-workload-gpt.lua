@@ -63,7 +63,7 @@ local function flush_rps_file()
       local p99 = percentile(lat_list, 0.99)
       local avg = avg_of(lat_list)
       table.insert(parts, string.format(
-        "%s_rps: %.1f; %s_p95: %.1f; %s_p99: %.1f; %s_avg: %.1f",
+        "%s_rps: %.1f;%s_p95:%.1f;%s_p99:%.1f;%s_avg: %.1f",
         key, rps, key, p95, key, p99, key, avg
       ))
     end
