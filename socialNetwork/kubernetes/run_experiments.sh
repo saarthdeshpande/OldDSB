@@ -26,6 +26,6 @@ done
 
 echo "Loop completed. Creating datasets."
 
-python data_process.py -t $duration
+python data_process.py -t $duration -v new
 
 echo "Datasets created."

@@ -1,0 +1,1875 @@
+---
+# Source: hotel-reservation/charts/frontend/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-release-name-hotelres
+  labels:
+    hotelreservation/service: frontend--release-name-hotelres
+data:
+  service-config.json: |    
+    {
+        "consulAddress": "consul-release-name-hotelres.default.svc.cluster.local:8500",
+        "jaegerAddress": "jaeger-release-name-hotelres.default.svc.cluster.local:6831",
+        "FrontendPort": "5000",
+        "GeoPort": "8083",
+        "GeoMongoAddress": "mongodb-geo-release-name-hotelres.default.svc.cluster.local:27018",
+        "ProfilePort": "8081",
+        "ProfileMongoAddress": "mongodb-profile-release-name-hotelres.default.svc.cluster.local:27019",
+        "ProfileMemcAddress": "memcached-profile-1-release-name-hotelres.default.svc.cluster.local:11213",
+        "RatePort": "8084",
+        "RateMongoAddress": "mongodb-rate-release-name-hotelres.default.svc.cluster.local:27020",
+        "RateMemcAddress": "memcached-rate-1-release-name-hotelres.default.svc.cluster.local:11212",
+        "RecommendPort": "8085",
+        "RecommendMongoAddress": "mongodb-recommendation-release-name-hotelres.default.svc.cluster.local:27021",
+        "ReservePort": "8087",
+        "ReserveMongoAddress": "mongodb-reservation-release-name-hotelres.default.svc.cluster.local:27022",
+        "ReserveMemcAddress": "memcached-reserve-1-release-name-hotelres.default.svc.cluster.local:11214",
+        "SearchPort": "8082",
+        "UserPort": "8086",
+        "UserMongoAddress": "mongodb-user-release-name-hotelres.default.svc.cluster.local:27023"
+    }
+---
+# Source: hotel-reservation/charts/geo/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: geo-release-name-hotelres
+  labels:
+    hotelreservation/service: geo--release-name-hotelres
+data:
+  service-config.json: |    
+    {
+        "consulAddress": "consul-release-name-hotelres.default.svc.cluster.local:8500",
+        "jaegerAddress": "jaeger-release-name-hotelres.default.svc.cluster.local:6831",
+        "FrontendPort": "5000",
+        "GeoPort": "8083",
+        "GeoMongoAddress": "mongodb-geo-release-name-hotelres.default.svc.cluster.local:27018",
+        "ProfilePort": "8081",
+        "ProfileMongoAddress": "mongodb-profile-release-name-hotelres.default.svc.cluster.local:27019",
+        "ProfileMemcAddress": "memcached-profile-1-release-name-hotelres.default.svc.cluster.local:11213",
+        "RatePort": "8084",
+        "RateMongoAddress": "mongodb-rate-release-name-hotelres.default.svc.cluster.local:27020",
+        "RateMemcAddress": "memcached-rate-1-release-name-hotelres.default.svc.cluster.local:11212",
+        "RecommendPort": "8085",
+        "RecommendMongoAddress": "mongodb-recommendation-release-name-hotelres.default.svc.cluster.local:27021",
+        "ReservePort": "8087",
+        "ReserveMongoAddress": "mongodb-reservation-release-name-hotelres.default.svc.cluster.local:27022",
+        "ReserveMemcAddress": "memcached-reserve-1-release-name-hotelres.default.svc.cluster.local:11214",
+        "SearchPort": "8082",
+        "UserPort": "8086",
+        "UserMongoAddress": "mongodb-user-release-name-hotelres.default.svc.cluster.local:27023"
+    }
+---
+# Source: hotel-reservation/charts/profile/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: profile-release-name-hotelres
+  labels:
+    hotelreservation/service: profile--release-name-hotelres
+data:
+  service-config.json: |    
+    {
+        "consulAddress": "consul-release-name-hotelres.default.svc.cluster.local:8500",
+        "jaegerAddress": "jaeger-release-name-hotelres.default.svc.cluster.local:6831",
+        "FrontendPort": "5000",
+        "GeoPort": "8083",
+        "GeoMongoAddress": "mongodb-geo-release-name-hotelres.default.svc.cluster.local:27018",
+        "ProfilePort": "8081",
+        "ProfileMongoAddress": "mongodb-profile-release-name-hotelres.default.svc.cluster.local:27019",
+        "ProfileMemcAddress": "memcached-profile-1-release-name-hotelres.default.svc.cluster.local:11213",
+        "RatePort": "8084",
+        "RateMongoAddress": "mongodb-rate-release-name-hotelres.default.svc.cluster.local:27020",
+        "RateMemcAddress": "memcached-rate-1-release-name-hotelres.default.svc.cluster.local:11212",
+        "RecommendPort": "8085",
+        "RecommendMongoAddress": "mongodb-recommendation-release-name-hotelres.default.svc.cluster.local:27021",
+        "ReservePort": "8087",
+        "ReserveMongoAddress": "mongodb-reservation-release-name-hotelres.default.svc.cluster.local:27022",
+        "ReserveMemcAddress": "memcached-reserve-1-release-name-hotelres.default.svc.cluster.local:11214",
+        "SearchPort": "8082",
+        "UserPort": "8086",
+        "UserMongoAddress": "mongodb-user-release-name-hotelres.default.svc.cluster.local:27023"
+    }
+---
+# Source: hotel-reservation/charts/rate/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rate-release-name-hotelres
+  labels:
+    hotelreservation/service: rate--release-name-hotelres
+data:
+  service-config.json: |    
+    {
+        "consulAddress": "consul-release-name-hotelres.default.svc.cluster.local:8500",
+        "jaegerAddress": "jaeger-release-name-hotelres.default.svc.cluster.local:6831",
+        "FrontendPort": "5000",
+        "GeoPort": "8083",
+        "GeoMongoAddress": "mongodb-geo-release-name-hotelres.default.svc.cluster.local:27018",
+        "ProfilePort": "8081",
+        "ProfileMongoAddress": "mongodb-profile-release-name-hotelres.default.svc.cluster.local:27019",
+        "ProfileMemcAddress": "memcached-profile-1-release-name-hotelres.default.svc.cluster.local:11213",
+        "RatePort": "8084",
+        "RateMongoAddress": "mongodb-rate-release-name-hotelres.default.svc.cluster.local:27020",
+        "RateMemcAddress": "memcached-rate-1-release-name-hotelres.default.svc.cluster.local:11212",
+        "RecommendPort": "8085",
+        "RecommendMongoAddress": "mongodb-recommendation-release-name-hotelres.default.svc.cluster.local:27021",
+        "ReservePort": "8087",
+        "ReserveMongoAddress": "mongodb-reservation-release-name-hotelres.default.svc.cluster.local:27022",
+        "ReserveMemcAddress": "memcached-reserve-1-release-name-hotelres.default.svc.cluster.local:11214",
+        "SearchPort": "8082",
+        "UserPort": "8086",
+        "UserMongoAddress": "mongodb-user-release-name-hotelres.default.svc.cluster.local:27023"
+    }
+---
+# Source: hotel-reservation/charts/recommendation/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: recommendation-release-name-hotelres
+  labels:
+    hotelreservation/service: recommendation--release-name-hotelres
+data:
+  service-config.json: |    
+    {
+        "consulAddress": "consul-release-name-hotelres.default.svc.cluster.local:8500",
+        "jaegerAddress": "jaeger-release-name-hotelres.default.svc.cluster.local:6831",
+        "FrontendPort": "5000",
+        "GeoPort": "8083",
+        "GeoMongoAddress": "mongodb-geo-release-name-hotelres.default.svc.cluster.local:27018",
+        "ProfilePort": "8081",
+        "ProfileMongoAddress": "mongodb-profile-release-name-hotelres.default.svc.cluster.local:27019",
+        "ProfileMemcAddress": "memcached-profile-1-release-name-hotelres.default.svc.cluster.local:11213",
+        "RatePort": "8084",
+        "RateMongoAddress": "mongodb-rate-release-name-hotelres.default.svc.cluster.local:27020",
+        "RateMemcAddress": "memcached-rate-1-release-name-hotelres.default.svc.cluster.local:11212",
+        "RecommendPort": "8085",
+        "RecommendMongoAddress": "mongodb-recommendation-release-name-hotelres.default.svc.cluster.local:27021",
+        "ReservePort": "8087",
+        "ReserveMongoAddress": "mongodb-reservation-release-name-hotelres.default.svc.cluster.local:27022",
+        "ReserveMemcAddress": "memcached-reserve-1-release-name-hotelres.default.svc.cluster.local:11214",
+        "SearchPort": "8082",
+        "UserPort": "8086",
+        "UserMongoAddress": "mongodb-user-release-name-hotelres.default.svc.cluster.local:27023"
+    }
+---
+# Source: hotel-reservation/charts/reservation/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: reservation-release-name-hotelres
+  labels:
+    hotelreservation/service: reservation--release-name-hotelres
+data:
+  service-config.json: |    
+    {
+        "consulAddress": "consul-release-name-hotelres.default.svc.cluster.local:8500",
+        "jaegerAddress": "jaeger-release-name-hotelres.default.svc.cluster.local:6831",
+        "FrontendPort": "5000",
+        "GeoPort": "8083",
+        "GeoMongoAddress": "mongodb-geo-release-name-hotelres.default.svc.cluster.local:27018",
+        "ProfilePort": "8081",
+        "ProfileMongoAddress": "mongodb-profile-release-name-hotelres.default.svc.cluster.local:27019",
+        "ProfileMemcAddress": "memcached-profile-1-release-name-hotelres.default.svc.cluster.local:11213",
+        "RatePort": "8084",
+        "RateMongoAddress": "mongodb-rate-release-name-hotelres.default.svc.cluster.local:27020",
+        "RateMemcAddress": "memcached-rate-1-release-name-hotelres.default.svc.cluster.local:11212",
+        "RecommendPort": "8085",
+        "RecommendMongoAddress": "mongodb-recommendation-release-name-hotelres.default.svc.cluster.local:27021",
+        "ReservePort": "8087",
+        "ReserveMongoAddress": "mongodb-reservation-release-name-hotelres.default.svc.cluster.local:27022",
+        "ReserveMemcAddress": "memcached-reserve-1-release-name-hotelres.default.svc.cluster.local:11214",
+        "SearchPort": "8082",
+        "UserPort": "8086",
+        "UserMongoAddress": "mongodb-user-release-name-hotelres.default.svc.cluster.local:27023"
+    }
+---
+# Source: hotel-reservation/charts/search/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: search-release-name-hotelres
+  labels:
+    hotelreservation/service: search--release-name-hotelres
+data:
+  service-config.json: |    
+    {
+        "consulAddress": "consul-release-name-hotelres.default.svc.cluster.local:8500",
+        "jaegerAddress": "jaeger-release-name-hotelres.default.svc.cluster.local:6831",
+        "FrontendPort": "5000",
+        "GeoPort": "8083",
+        "GeoMongoAddress": "mongodb-geo-release-name-hotelres.default.svc.cluster.local:27018",
+        "ProfilePort": "8081",
+        "ProfileMongoAddress": "mongodb-profile-release-name-hotelres.default.svc.cluster.local:27019",
+        "ProfileMemcAddress": "memcached-profile-1-release-name-hotelres.default.svc.cluster.local:11213",
+        "RatePort": "8084",
+        "RateMongoAddress": "mongodb-rate-release-name-hotelres.default.svc.cluster.local:27020",
+        "RateMemcAddress": "memcached-rate-1-release-name-hotelres.default.svc.cluster.local:11212",
+        "RecommendPort": "8085",
+        "RecommendMongoAddress": "mongodb-recommendation-release-name-hotelres.default.svc.cluster.local:27021",
+        "ReservePort": "8087",
+        "ReserveMongoAddress": "mongodb-reservation-release-name-hotelres.default.svc.cluster.local:27022",
+        "ReserveMemcAddress": "memcached-reserve-1-release-name-hotelres.default.svc.cluster.local:11214",
+        "SearchPort": "8082",
+        "UserPort": "8086",
+        "UserMongoAddress": "mongodb-user-release-name-hotelres.default.svc.cluster.local:27023"
+    }
+---
+# Source: hotel-reservation/charts/user/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: user-release-name-hotelres
+  labels:
+    hotelreservation/service: user--release-name-hotelres
+data:
+  service-config.json: |    
+    {
+        "consulAddress": "consul-release-name-hotelres.default.svc.cluster.local:8500",
+        "jaegerAddress": "jaeger-release-name-hotelres.default.svc.cluster.local:6831",
+        "FrontendPort": "5000",
+        "GeoPort": "8083",
+        "GeoMongoAddress": "mongodb-geo-release-name-hotelres.default.svc.cluster.local:27018",
+        "ProfilePort": "8081",
+        "ProfileMongoAddress": "mongodb-profile-release-name-hotelres.default.svc.cluster.local:27019",
+        "ProfileMemcAddress": "memcached-profile-1-release-name-hotelres.default.svc.cluster.local:11213",
+        "RatePort": "8084",
+        "RateMongoAddress": "mongodb-rate-release-name-hotelres.default.svc.cluster.local:27020",
+        "RateMemcAddress": "memcached-rate-1-release-name-hotelres.default.svc.cluster.local:11212",
+        "RecommendPort": "8085",
+        "RecommendMongoAddress": "mongodb-recommendation-release-name-hotelres.default.svc.cluster.local:27021",
+        "ReservePort": "8087",
+        "ReserveMongoAddress": "mongodb-reservation-release-name-hotelres.default.svc.cluster.local:27022",
+        "ReserveMemcAddress": "memcached-reserve-1-release-name-hotelres.default.svc.cluster.local:11214",
+        "SearchPort": "8082",
+        "UserPort": "8086",
+        "UserMongoAddress": "mongodb-user-release-name-hotelres.default.svc.cluster.local:27023"
+    }
+---
+# Source: hotel-reservation/charts/mongodb-geo/templates/persistentVolume.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongodb-geo-release-name-hotelres-pv
+  labels:
+    app-name: mongodb-geo-release-name-hotelres
+spec:
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  hostPath:
+    path: /tmp/mongodb-geo-pv
+    type: DirectoryOrCreate
+---
+# Source: hotel-reservation/charts/mongodb-profile/templates/persistentVolume.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongodb-profile-release-name-hotelres-pv
+  labels:
+    app-name: mongodb-profile-release-name-hotelres
+spec:
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  hostPath:
+    path: /tmp/mongodb-profile-pv
+    type: DirectoryOrCreate
+---
+# Source: hotel-reservation/charts/mongodb-rate/templates/persistentVolume.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongodb-rate-release-name-hotelres-pv
+  labels:
+    app-name: mongodb-rate-release-name-hotelres
+spec:
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  hostPath:
+    path: /tmp/mongodb-rate-pv
+    type: DirectoryOrCreate
+---
+# Source: hotel-reservation/charts/mongodb-recommendation/templates/persistentVolume.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongodb-recommendation-release-name-hotelres-pv
+  labels:
+    app-name: mongodb-recommendation-release-name-hotelres
+spec:
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  hostPath:
+    path: /tmp/mongodb-recommendation-pv
+    type: DirectoryOrCreate
+---
+# Source: hotel-reservation/charts/mongodb-reservation/templates/persistentVolume.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongodb-reservation-release-name-hotelres-pv
+  labels:
+    app-name: mongodb-reservation-release-name-hotelres
+spec:
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  hostPath:
+    path: /tmp/mongodb-reservation-pv
+    type: DirectoryOrCreate
+---
+# Source: hotel-reservation/charts/mongodb-user/templates/persistentVolume.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongodb-user-release-name-hotelres-pv
+  labels:
+    app-name: mongodb-user-release-name-hotelres
+spec:
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  hostPath:
+    path: /tmp/mongodb-user-pv
+    type: DirectoryOrCreate
+---
+# Source: hotel-reservation/charts/mongodb-geo/templates/persistentVolumeClaim.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongodb-geo-release-name-hotelres-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+# Source: hotel-reservation/charts/mongodb-profile/templates/persistentVolumeClaim.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongodb-profile-release-name-hotelres-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+# Source: hotel-reservation/charts/mongodb-rate/templates/persistentVolumeClaim.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongodb-rate-release-name-hotelres-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+# Source: hotel-reservation/charts/mongodb-recommendation/templates/persistentVolumeClaim.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongodb-recommendation-release-name-hotelres-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+# Source: hotel-reservation/charts/mongodb-reservation/templates/persistentVolumeClaim.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongodb-reservation-release-name-hotelres-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+# Source: hotel-reservation/charts/mongodb-user/templates/persistentVolumeClaim.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongodb-user-release-name-hotelres-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+# Source: hotel-reservation/charts/consul/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: consul-release-name-hotelres
+spec:
+  type: ClusterIP
+  ports:
+  - name: "8300"
+    port: 8300
+    targetPort: 8300
+  - name: "8400"
+    port: 8400
+    targetPort: 8400
+  - name: "8500"
+    port: 8500
+    targetPort: 8500
+  - name: "8600"
+    port: 8600
+    protocol: UDP
+    targetPort: 53
+  selector:
+    app.kubernetes.io/name: consul
+    app.kubernetes.io/instance: release-name
+    service: consul-release-name-hotelres
+---
+# Source: hotel-reservation/charts/frontend/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-release-name-hotelres
+spec:
+  type: ClusterIP
+  ports:
+  - name: "5000"
+    port: 5000
+    targetPort: 5000
+  selector:
+    app.kubernetes.io/name: frontend
+    app.kubernetes.io/instance: release-name
+    service: frontend-release-name-hotelres
+---
+# Source: hotel-reservation/charts/geo/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: geo-release-name-hotelres
+spec:
+  type: ClusterIP
+  ports:
+  - name: "8083"
+    port: 8083
+    targetPort: 8083
+  selector:
+    app.kubernetes.io/name: geo
+    app.kubernetes.io/instance: release-name
+    service: geo-release-name-hotelres
+---
+# Source: hotel-reservation/charts/jaeger/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: jaeger-release-name-hotelres
+spec:
+  type: ClusterIP
+  ports:
+  - name: "14269"
+    port: 14269
+    targetPort: 14269
+  - name: "5778"
+    port: 5778
+    targetPort: 5778
+  - name: "14268"
+    port: 14268
+    targetPort: 14268
+  - name: "14267"
+    port: 14267
+    targetPort: 14267
+  - name: "16686"
+    port: 16686
+    targetPort: 16686
+  - name: "5775"
+    port: 5775
+    protocol: UDP
+    targetPort: 5775
+  - name: "6831"
+    port: 6831
+    protocol: UDP
+    targetPort: 6831
+  - name: "6832"
+    port: 6832
+    protocol: UDP
+    targetPort: 6832
+  selector:
+    app.kubernetes.io/name: jaeger
+    app.kubernetes.io/instance: release-name
+    service: jaeger-release-name-hotelres
+---
+# Source: hotel-reservation/charts/memcached-profile/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: memcached-profile-1-release-name-hotelres
+spec:
+  type: ClusterIP
+  ports:
+  - name: "11213"
+    port: 11213
+    targetPort: 11211
+  selector:
+    app.kubernetes.io/name: memcached-profile
+    app.kubernetes.io/instance: release-name
+    service: memcached-profile-1-release-name-hotelres
+---
+# Source: hotel-reservation/charts/memcached-rate/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: memcached-rate-1-release-name-hotelres
+spec:
+  type: ClusterIP
+  ports:
+  - name: "11212"
+    port: 11212
+    targetPort: 11211
+  selector:
+    app.kubernetes.io/name: memcached-rate
+    app.kubernetes.io/instance: release-name
+    service: memcached-rate-1-release-name-hotelres
+---
+# Source: hotel-reservation/charts/memcached-reserve/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: memcached-reserve-1-release-name-hotelres
+spec:
+  type: ClusterIP
+  ports:
+  - name: "11214"
+    port: 11214
+    targetPort: 11211
+  selector:
+    app.kubernetes.io/name: memcached-reserve
+    app.kubernetes.io/instance: release-name
+    service: memcached-reserve-1-release-name-hotelres
+---
+# Source: hotel-reservation/charts/mongodb-geo/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb-geo-release-name-hotelres
+spec:
+  type: ClusterIP
+  ports:
+  - name: "27018"
+    port: 27018
+    targetPort: 27017
+  selector:
+    app.kubernetes.io/name: mongodb-geo
+    app.kubernetes.io/instance: release-name
+    service: mongodb-geo-release-name-hotelres
+---
+# Source: hotel-reservation/charts/mongodb-profile/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb-profile-release-name-hotelres
+spec:
+  type: ClusterIP
+  ports:
+  - name: "27019"
+    port: 27019
+    targetPort: 27017
+  selector:
+    app.kubernetes.io/name: mongodb-profile
+    app.kubernetes.io/instance: release-name
+    service: mongodb-profile-release-name-hotelres
+---
+# Source: hotel-reservation/charts/mongodb-rate/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb-rate-release-name-hotelres
+spec:
+  type: ClusterIP
+  ports:
+  - name: "27020"
+    port: 27020
+    targetPort: 27017
+  selector:
+    app.kubernetes.io/name: mongodb-rate
+    app.kubernetes.io/instance: release-name
+    service: mongodb-rate-release-name-hotelres
+---
+# Source: hotel-reservation/charts/mongodb-recommendation/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb-recommendation-release-name-hotelres
+spec:
+  type: ClusterIP
+  ports:
+  - name: "27021"
+    port: 27021
+    targetPort: 27017
+  selector:
+    app.kubernetes.io/name: mongodb-recommendation
+    app.kubernetes.io/instance: release-name
+    service: mongodb-recommendation-release-name-hotelres
+---
+# Source: hotel-reservation/charts/mongodb-reservation/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb-reservation-release-name-hotelres
+spec:
+  type: ClusterIP
+  ports:
+  - name: "27022"
+    port: 27022
+    targetPort: 27017
+  selector:
+    app.kubernetes.io/name: mongodb-reservation
+    app.kubernetes.io/instance: release-name
+    service: mongodb-reservation-release-name-hotelres
+---
+# Source: hotel-reservation/charts/mongodb-user/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb-user-release-name-hotelres
+spec:
+  type: ClusterIP
+  ports:
+  - name: "27023"
+    port: 27023
+    targetPort: 27017
+  selector:
+    app.kubernetes.io/name: mongodb-user
+    app.kubernetes.io/instance: release-name
+    service: mongodb-user-release-name-hotelres
+---
+# Source: hotel-reservation/charts/profile/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: profile-release-name-hotelres
+spec:
+  type: ClusterIP
+  ports:
+  - name: "8081"
+    port: 8081
+    targetPort: 8081
+  selector:
+    app.kubernetes.io/name: profile
+    app.kubernetes.io/instance: release-name
+    service: profile-release-name-hotelres
+---
+# Source: hotel-reservation/charts/rate/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: rate-release-name-hotelres
+spec:
+  type: ClusterIP
+  ports:
+  - name: "8084"
+    port: 8084
+    targetPort: 8084
+  selector:
+    app.kubernetes.io/name: rate
+    app.kubernetes.io/instance: release-name
+    service: rate-release-name-hotelres
+---
+# Source: hotel-reservation/charts/recommendation/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: recommendation-release-name-hotelres
+spec:
+  type: ClusterIP
+  ports:
+  - name: "8085"
+    port: 8085
+    targetPort: 8085
+  selector:
+    app.kubernetes.io/name: recommendation
+    app.kubernetes.io/instance: release-name
+    service: recommendation-release-name-hotelres
+---
+# Source: hotel-reservation/charts/reservation/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: reservation-release-name-hotelres
+spec:
+  type: ClusterIP
+  ports:
+  - name: "8087"
+    port: 8087
+    targetPort: 8087
+  selector:
+    app.kubernetes.io/name: reservation
+    app.kubernetes.io/instance: release-name
+    service: reservation-release-name-hotelres
+---
+# Source: hotel-reservation/charts/search/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: search-release-name-hotelres
+spec:
+  type: ClusterIP
+  ports:
+  - name: "8082"
+    port: 8082
+    targetPort: 8082
+  selector:
+    app.kubernetes.io/name: search
+    app.kubernetes.io/instance: release-name
+    service: search-release-name-hotelres
+---
+# Source: hotel-reservation/charts/user/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-release-name-hotelres
+spec:
+  type: ClusterIP
+  ports:
+  - name: "8086"
+    port: 8086
+    targetPort: 8086
+  selector:
+    app.kubernetes.io/name: user
+    app.kubernetes.io/instance: release-name
+    service: user-release-name-hotelres
+---
+# Source: hotel-reservation/charts/consul/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    helm.sh/chart: consul-0.1.0
+    app.kubernetes.io/name: consul
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "0.1.0"
+    app.kubernetes.io/managed-by: Helm
+    service: consul-release-name-hotelres
+  name: consul-release-name-hotelres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: consul
+      app.kubernetes.io/instance: release-name
+      service: consul-release-name-hotelres
+      app: consul-release-name-hotelres
+  template:
+    metadata:
+      labels:
+        helm.sh/chart: consul-0.1.0
+        app.kubernetes.io/name: consul
+        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/version: "0.1.0"
+        app.kubernetes.io/managed-by: Helm
+        service: consul-release-name-hotelres
+        app: consul-release-name-hotelres
+    spec:
+      containers:
+      - name: "consul"
+        image: docker.io/hashicorp/consul:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8300
+        - containerPort: 8400
+        - containerPort: 8500
+        - containerPort: 53
+      hostname: consul-release-name-hotelres
+      restartPolicy: Always
+      affinity:
+        {}
+      tolerations:
+        []
+      nodeSelector:
+        {}
+---
+# Source: hotel-reservation/charts/frontend/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    helm.sh/chart: frontend-0.1.0
+    app.kubernetes.io/name: frontend
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "0.1.0"
+    app.kubernetes.io/managed-by: Helm
+    service: frontend-release-name-hotelres
+  name: frontend-release-name-hotelres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: frontend
+      app.kubernetes.io/instance: release-name
+      service: frontend-release-name-hotelres
+      app: frontend-release-name-hotelres
+  template:
+    metadata:
+      labels:
+        helm.sh/chart: frontend-0.1.0
+        app.kubernetes.io/name: frontend
+        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/version: "0.1.0"
+        app.kubernetes.io/managed-by: Helm
+        service: frontend-release-name-hotelres
+        app: frontend-release-name-hotelres
+    spec:
+      containers:
+      - name: "hotel-reserv-frontend"
+        image: docker.io/divyanshus/hotelreservation:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5000
+        env:
+          - name: TLS
+            value: "0"
+          - name: LOG_LEVEL
+            value: "INFO"
+          - name: JAEGER_SAMPLE_RATIO
+            value: "0.01"
+          - name: MEMC_TIMEOUT
+            value: "2"
+          - name: GC
+            value: "100"
+        command:
+        - frontend        
+        volumeMounts:
+        - name: frontend-release-name-hotelres-config
+          mountPath: /go/src/github.com/harlow/go-micro-services/config.json
+          subPath: service-config.json
+      volumes:
+      - name: frontend-release-name-hotelres-config
+        configMap:
+          name: frontend-release-name-hotelres
+      hostname: frontend-release-name-hotelres
+      restartPolicy: Always
+      affinity:
+        {}
+      tolerations:
+        []
+      nodeSelector:
+        {}
+---
+# Source: hotel-reservation/charts/geo/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    helm.sh/chart: geo-0.1.0
+    app.kubernetes.io/name: geo
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "0.1.0"
+    app.kubernetes.io/managed-by: Helm
+    service: geo-release-name-hotelres
+  name: geo-release-name-hotelres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: geo
+      app.kubernetes.io/instance: release-name
+      service: geo-release-name-hotelres
+      app: geo-release-name-hotelres
+  template:
+    metadata:
+      labels:
+        helm.sh/chart: geo-0.1.0
+        app.kubernetes.io/name: geo
+        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/version: "0.1.0"
+        app.kubernetes.io/managed-by: Helm
+        service: geo-release-name-hotelres
+        app: geo-release-name-hotelres
+    spec:
+      containers:
+      - name: "hotel-reserv-geo"
+        image: docker.io/divyanshus/hotelreservation:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8083
+        env:
+          - name: TLS
+            value: "0"
+          - name: LOG_LEVEL
+            value: "INFO"
+          - name: JAEGER_SAMPLE_RATIO
+            value: "0.01"
+          - name: MEMC_TIMEOUT
+            value: "2"
+          - name: GC
+            value: "100"
+        command:
+        - geo        
+        volumeMounts:
+        - name: geo-release-name-hotelres-config
+          mountPath: /go/src/github.com/harlow/go-micro-services/config.json
+          subPath: service-config.json
+      volumes:
+      - name: geo-release-name-hotelres-config
+        configMap:
+          name: geo-release-name-hotelres
+      hostname: geo-release-name-hotelres
+      restartPolicy: Always
+      affinity:
+        {}
+      tolerations:
+        []
+      nodeSelector:
+        {}
+---
+# Source: hotel-reservation/charts/jaeger/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    helm.sh/chart: jaeger-0.1.0
+    app.kubernetes.io/name: jaeger
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "0.1.0"
+    app.kubernetes.io/managed-by: Helm
+    service: jaeger-release-name-hotelres
+  name: jaeger-release-name-hotelres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: jaeger
+      app.kubernetes.io/instance: release-name
+      service: jaeger-release-name-hotelres
+      app: jaeger-release-name-hotelres
+  template:
+    metadata:
+      labels:
+        helm.sh/chart: jaeger-0.1.0
+        app.kubernetes.io/name: jaeger
+        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/version: "0.1.0"
+        app.kubernetes.io/managed-by: Helm
+        service: jaeger-release-name-hotelres
+        app: jaeger-release-name-hotelres
+    spec:
+      containers:
+      - name: "hotel-reserv-jaeger"
+        image: docker.io/jaegertracing/all-in-one:1.21.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 14269
+        - containerPort: 5778
+        - containerPort: 14268
+        - containerPort: 14267
+        - containerPort: 16686
+        - containerPort: 5775
+        - containerPort: 6831
+        - containerPort: 6832
+      hostname: jaeger-release-name-hotelres
+      restartPolicy: Always
+      affinity:
+        {}
+      tolerations:
+        []
+      nodeSelector:
+        {}
+---
+# Source: hotel-reservation/charts/memcached-profile/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    helm.sh/chart: memcached-profile-0.1.0
+    app.kubernetes.io/name: memcached-profile
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "0.1.0"
+    app.kubernetes.io/managed-by: Helm
+    service: memcached-profile-1-release-name-hotelres
+  name: memcached-profile-1-release-name-hotelres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: memcached-profile
+      app.kubernetes.io/instance: release-name
+      service: memcached-profile-1-release-name-hotelres
+      app: memcached-profile-1-release-name-hotelres
+  template:
+    metadata:
+      labels:
+        helm.sh/chart: memcached-profile-0.1.0
+        app.kubernetes.io/name: memcached-profile
+        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/version: "0.1.0"
+        app.kubernetes.io/managed-by: Helm
+        service: memcached-profile-1-release-name-hotelres
+        app: memcached-profile-1-release-name-hotelres
+    spec:
+      containers:
+      - name: "hotel-reserv-profile-mmc"
+        image: docker.io/memcached:1.6.17
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 11211
+        env:
+          - name: MEMCACHED_CACHE_SIZE
+            value: "128"
+          - name: MEMCACHED_THREADS
+            value: "2"
+        command:
+          - "memcached"
+          - "-c"
+          - "65536"
+      hostname: memcached-profile-release-name-hotelres
+      restartPolicy: Always
+      affinity:
+        {}
+      tolerations:
+        []
+      nodeSelector:
+        {}
+---
+# Source: hotel-reservation/charts/memcached-rate/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    helm.sh/chart: memcached-rate-0.1.0
+    app.kubernetes.io/name: memcached-rate
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "0.1.0"
+    app.kubernetes.io/managed-by: Helm
+    service: memcached-rate-1-release-name-hotelres
+  name: memcached-rate-1-release-name-hotelres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: memcached-rate
+      app.kubernetes.io/instance: release-name
+      service: memcached-rate-1-release-name-hotelres
+      app: memcached-rate-1-release-name-hotelres
+  template:
+    metadata:
+      labels:
+        helm.sh/chart: memcached-rate-0.1.0
+        app.kubernetes.io/name: memcached-rate
+        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/version: "0.1.0"
+        app.kubernetes.io/managed-by: Helm
+        service: memcached-rate-1-release-name-hotelres
+        app: memcached-rate-1-release-name-hotelres
+    spec:
+      containers:
+      - name: "hotel-reserv-rate-mmc"
+        image: docker.io/memcached:1.6.17
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 11211
+        env:
+          - name: MEMCACHED_CACHE_SIZE
+            value: "128"
+          - name: MEMCACHED_THREADS
+            value: "2"
+        command:
+          - "memcached"
+          - "-c"
+          - "65536"
+      hostname: memcached-rate-release-name-hotelres
+      restartPolicy: Always
+      affinity:
+        {}
+      tolerations:
+        []
+      nodeSelector:
+        {}
+---
+# Source: hotel-reservation/charts/memcached-reserve/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    helm.sh/chart: memcached-reserve-0.1.0
+    app.kubernetes.io/name: memcached-reserve
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "0.1.0"
+    app.kubernetes.io/managed-by: Helm
+    service: memcached-reserve-1-release-name-hotelres
+  name: memcached-reserve-1-release-name-hotelres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: memcached-reserve
+      app.kubernetes.io/instance: release-name
+      service: memcached-reserve-1-release-name-hotelres
+      app: memcached-reserve-1-release-name-hotelres
+  template:
+    metadata:
+      labels:
+        helm.sh/chart: memcached-reserve-0.1.0
+        app.kubernetes.io/name: memcached-reserve
+        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/version: "0.1.0"
+        app.kubernetes.io/managed-by: Helm
+        service: memcached-reserve-1-release-name-hotelres
+        app: memcached-reserve-1-release-name-hotelres
+    spec:
+      containers:
+      - name: "hotel-reserv-reservation-mmc"
+        image: docker.io/memcached:1.6.17
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 11211
+        env:
+          - name: MEMCACHED_CACHE_SIZE
+            value: "128"
+          - name: MEMCACHED_THREADS
+            value: "2"
+        command:
+          - "memcached"
+          - "-c"
+          - "65536"
+      hostname: memcached-reserve-release-name-hotelres
+      restartPolicy: Always
+      affinity:
+        {}
+      tolerations:
+        []
+      nodeSelector:
+        {}
+---
+# Source: hotel-reservation/charts/mongodb-geo/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    helm.sh/chart: mongodb-geo-0.1.0
+    app.kubernetes.io/name: mongodb-geo
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "0.1.0"
+    app.kubernetes.io/managed-by: Helm
+    service: mongodb-geo-release-name-hotelres
+  name: mongodb-geo-release-name-hotelres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: mongodb-geo
+      app.kubernetes.io/instance: release-name
+      service: mongodb-geo-release-name-hotelres
+      app: mongodb-geo-release-name-hotelres
+  template:
+    metadata:
+      labels:
+        helm.sh/chart: mongodb-geo-0.1.0
+        app.kubernetes.io/name: mongodb-geo
+        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/version: "0.1.0"
+        app.kubernetes.io/managed-by: Helm
+        service: mongodb-geo-release-name-hotelres
+        app: mongodb-geo-release-name-hotelres
+    spec:
+      containers:
+      - name: "hotel-reserv-geo-mongo"
+        image: docker.io/mongo:5
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - mountPath: /data/db
+          name: mongodb-geo-release-name-hotelres-path
+      volumes:
+      - name: mongodb-geo-release-name-hotelres-path
+        emptyDir: {}
+      hostname: mongodb-geo-release-name-hotelres
+      restartPolicy: Always
+      affinity:
+        {}
+      tolerations:
+        []
+      nodeSelector:
+        {}
+---
+# Source: hotel-reservation/charts/mongodb-profile/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    helm.sh/chart: mongodb-profile-0.1.0
+    app.kubernetes.io/name: mongodb-profile
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "0.1.0"
+    app.kubernetes.io/managed-by: Helm
+    service: mongodb-profile-release-name-hotelres
+  name: mongodb-profile-release-name-hotelres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: mongodb-profile
+      app.kubernetes.io/instance: release-name
+      service: mongodb-profile-release-name-hotelres
+      app: mongodb-profile-release-name-hotelres
+  template:
+    metadata:
+      labels:
+        helm.sh/chart: mongodb-profile-0.1.0
+        app.kubernetes.io/name: mongodb-profile
+        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/version: "0.1.0"
+        app.kubernetes.io/managed-by: Helm
+        service: mongodb-profile-release-name-hotelres
+        app: mongodb-profile-release-name-hotelres
+    spec:
+      containers:
+      - name: "hotel-reserv-profile-mongo"
+        image: docker.io/mongo:5
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - mountPath: /data/db
+          name: mongodb-profile-release-name-hotelres-path
+      volumes:
+      - name: mongodb-profile-release-name-hotelres-path
+        emptyDir: {}
+      hostname: mongodb-profile-release-name-hotelres
+      restartPolicy: Always
+      affinity:
+        {}
+      tolerations:
+        []
+      nodeSelector:
+        {}
+---
+# Source: hotel-reservation/charts/mongodb-rate/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    helm.sh/chart: mongodb-rate-0.1.0
+    app.kubernetes.io/name: mongodb-rate
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "0.1.0"
+    app.kubernetes.io/managed-by: Helm
+    service: mongodb-rate-release-name-hotelres
+  name: mongodb-rate-release-name-hotelres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: mongodb-rate
+      app.kubernetes.io/instance: release-name
+      service: mongodb-rate-release-name-hotelres
+      app: mongodb-rate-release-name-hotelres
+  template:
+    metadata:
+      labels:
+        helm.sh/chart: mongodb-rate-0.1.0
+        app.kubernetes.io/name: mongodb-rate
+        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/version: "0.1.0"
+        app.kubernetes.io/managed-by: Helm
+        service: mongodb-rate-release-name-hotelres
+        app: mongodb-rate-release-name-hotelres
+    spec:
+      containers:
+      - name: "hotel-reserv-rate-mongo"
+        image: docker.io/mongo:5
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - mountPath: /data/db
+          name: mongodb-rate-release-name-hotelres-path
+      volumes:
+      - name: mongodb-rate-release-name-hotelres-path
+        emptyDir: {}
+      hostname: mongodb-rate-release-name-hotelres
+      restartPolicy: Always
+      affinity:
+        {}
+      tolerations:
+        []
+      nodeSelector:
+        {}
+---
+# Source: hotel-reservation/charts/mongodb-recommendation/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    helm.sh/chart: mongodb-recommendation-0.1.0
+    app.kubernetes.io/name: mongodb-recommendation
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "0.1.0"
+    app.kubernetes.io/managed-by: Helm
+    service: mongodb-recommendation-release-name-hotelres
+  name: mongodb-recommendation-release-name-hotelres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: mongodb-recommendation
+      app.kubernetes.io/instance: release-name
+      service: mongodb-recommendation-release-name-hotelres
+      app: mongodb-recommendation-release-name-hotelres
+  template:
+    metadata:
+      labels:
+        helm.sh/chart: mongodb-recommendation-0.1.0
+        app.kubernetes.io/name: mongodb-recommendation
+        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/version: "0.1.0"
+        app.kubernetes.io/managed-by: Helm
+        service: mongodb-recommendation-release-name-hotelres
+        app: mongodb-recommendation-release-name-hotelres
+    spec:
+      containers:
+      - name: "hotel-reserv-recommendation-mongo"
+        image: docker.io/mongo:5
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - mountPath: /data/db
+          name: mongodb-recommendation-release-name-hotelres-path
+      volumes:
+      - name: mongodb-recommendation-release-name-hotelres-path
+        emptyDir: {}
+      hostname: mongodb-recommendation-release-name-hotelres
+      restartPolicy: Always
+      affinity:
+        {}
+      tolerations:
+        []
+      nodeSelector:
+        {}
+---
+# Source: hotel-reservation/charts/mongodb-reservation/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    helm.sh/chart: mongodb-reservation-0.1.0
+    app.kubernetes.io/name: mongodb-reservation
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "0.1.0"
+    app.kubernetes.io/managed-by: Helm
+    service: mongodb-reservation-release-name-hotelres
+  name: mongodb-reservation-release-name-hotelres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: mongodb-reservation
+      app.kubernetes.io/instance: release-name
+      service: mongodb-reservation-release-name-hotelres
+      app: mongodb-reservation-release-name-hotelres
+  template:
+    metadata:
+      labels:
+        helm.sh/chart: mongodb-reservation-0.1.0
+        app.kubernetes.io/name: mongodb-reservation
+        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/version: "0.1.0"
+        app.kubernetes.io/managed-by: Helm
+        service: mongodb-reservation-release-name-hotelres
+        app: mongodb-reservation-release-name-hotelres
+    spec:
+      containers:
+      - name: "hotel-reserv-reservation-mongo"
+        image: docker.io/mongo:5
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - mountPath: /data/db
+          name: mongodb-reservation-release-name-hotelres-path
+      volumes:
+      - name: mongodb-reservation-release-name-hotelres-path
+        emptyDir: {}
+      hostname: mongodb-reservation-release-name-hotelres
+      restartPolicy: Always
+      affinity:
+        {}
+      tolerations:
+        []
+      nodeSelector:
+        {}
+---
+# Source: hotel-reservation/charts/mongodb-user/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    helm.sh/chart: mongodb-user-0.1.0
+    app.kubernetes.io/name: mongodb-user
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "0.1.0"
+    app.kubernetes.io/managed-by: Helm
+    service: mongodb-user-release-name-hotelres
+  name: mongodb-user-release-name-hotelres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: mongodb-user
+      app.kubernetes.io/instance: release-name
+      service: mongodb-user-release-name-hotelres
+      app: mongodb-user-release-name-hotelres
+  template:
+    metadata:
+      labels:
+        helm.sh/chart: mongodb-user-0.1.0
+        app.kubernetes.io/name: mongodb-user
+        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/version: "0.1.0"
+        app.kubernetes.io/managed-by: Helm
+        service: mongodb-user-release-name-hotelres
+        app: mongodb-user-release-name-hotelres
+    spec:
+      containers:
+      - name: "hotel-reserv-user-mongo"
+        image: docker.io/mongo:5
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - mountPath: /data/db
+          name: mongodb-user-release-name-hotelres-path
+      volumes:
+      - name: mongodb-user-release-name-hotelres-path
+        emptyDir: {}
+      hostname: mongodb-user-release-name-hotelres
+      restartPolicy: Always
+      affinity:
+        {}
+      tolerations:
+        []
+      nodeSelector:
+        {}
+---
+# Source: hotel-reservation/charts/profile/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    helm.sh/chart: profile-0.1.0
+    app.kubernetes.io/name: profile
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "0.1.0"
+    app.kubernetes.io/managed-by: Helm
+    service: profile-release-name-hotelres
+  name: profile-release-name-hotelres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: profile
+      app.kubernetes.io/instance: release-name
+      service: profile-release-name-hotelres
+      app: profile-release-name-hotelres
+  template:
+    metadata:
+      labels:
+        helm.sh/chart: profile-0.1.0
+        app.kubernetes.io/name: profile
+        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/version: "0.1.0"
+        app.kubernetes.io/managed-by: Helm
+        service: profile-release-name-hotelres
+        app: profile-release-name-hotelres
+    spec:
+      containers:
+      - name: "hotel-reserv-profile"
+        image: docker.io/divyanshus/hotelreservation:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8081
+        env:
+          - name: TLS
+            value: "0"
+          - name: LOG_LEVEL
+            value: "INFO"
+          - name: JAEGER_SAMPLE_RATIO
+            value: "0.01"
+          - name: MEMC_TIMEOUT
+            value: "2"
+          - name: GC
+            value: "100"
+        command:
+        - profile        
+        volumeMounts:
+        - name: profile-release-name-hotelres-config
+          mountPath: /go/src/github.com/harlow/go-micro-services/config.json
+          subPath: service-config.json
+      volumes:
+      - name: profile-release-name-hotelres-config
+        configMap:
+          name: profile-release-name-hotelres
+      hostname: profile-release-name-hotelres
+      restartPolicy: Always
+      affinity:
+        {}
+      tolerations:
+        []
+      nodeSelector:
+        {}
+---
+# Source: hotel-reservation/charts/rate/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    helm.sh/chart: rate-0.1.0
+    app.kubernetes.io/name: rate
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "0.1.0"
+    app.kubernetes.io/managed-by: Helm
+    service: rate-release-name-hotelres
+  name: rate-release-name-hotelres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: rate
+      app.kubernetes.io/instance: release-name
+      service: rate-release-name-hotelres
+      app: rate-release-name-hotelres
+  template:
+    metadata:
+      labels:
+        helm.sh/chart: rate-0.1.0
+        app.kubernetes.io/name: rate
+        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/version: "0.1.0"
+        app.kubernetes.io/managed-by: Helm
+        service: rate-release-name-hotelres
+        app: rate-release-name-hotelres
+    spec:
+      containers:
+      - name: "hotel-reserv-rate"
+        image: docker.io/divyanshus/hotelreservation:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8084
+        env:
+          - name: TLS
+            value: "0"
+          - name: LOG_LEVEL
+            value: "INFO"
+          - name: JAEGER_SAMPLE_RATIO
+            value: "0.01"
+          - name: MEMC_TIMEOUT
+            value: "2"
+          - name: GC
+            value: "100"
+        command:
+        - rate        
+        volumeMounts:
+        - name: rate-release-name-hotelres-config
+          mountPath: /go/src/github.com/harlow/go-micro-services/config.json
+          subPath: service-config.json
+      volumes:
+      - name: rate-release-name-hotelres-config
+        configMap:
+          name: rate-release-name-hotelres
+      hostname: rate-release-name-hotelres
+      restartPolicy: Always
+      affinity:
+        {}
+      tolerations:
+        []
+      nodeSelector:
+        {}
+---
+# Source: hotel-reservation/charts/recommendation/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    helm.sh/chart: recommendation-0.1.0
+    app.kubernetes.io/name: recommendation
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "0.1.0"
+    app.kubernetes.io/managed-by: Helm
+    service: recommendation-release-name-hotelres
+  name: recommendation-release-name-hotelres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: recommendation
+      app.kubernetes.io/instance: release-name
+      service: recommendation-release-name-hotelres
+      app: recommendation-release-name-hotelres
+  template:
+    metadata:
+      labels:
+        helm.sh/chart: recommendation-0.1.0
+        app.kubernetes.io/name: recommendation
+        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/version: "0.1.0"
+        app.kubernetes.io/managed-by: Helm
+        service: recommendation-release-name-hotelres
+        app: recommendation-release-name-hotelres
+    spec:
+      containers:
+      - name: "hotel-reserv-recommendation"
+        image: docker.io/divyanshus/hotelreservation:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8085
+        env:
+          - name: TLS
+            value: "0"
+          - name: LOG_LEVEL
+            value: "INFO"
+          - name: JAEGER_SAMPLE_RATIO
+            value: "0.01"
+          - name: MEMC_TIMEOUT
+            value: "2"
+          - name: GC
+            value: "100"
+        command:
+        - recommendation        
+        volumeMounts:
+        - name: recommendation-release-name-hotelres-config
+          mountPath: /go/src/github.com/harlow/go-micro-services/config.json
+          subPath: service-config.json
+      volumes:
+      - name: recommendation-release-name-hotelres-config
+        configMap:
+          name: recommendation-release-name-hotelres
+      hostname: recommendation-release-name-hotelres
+      restartPolicy: Always
+      affinity:
+        {}
+      tolerations:
+        []
+      nodeSelector:
+        {}
+---
+# Source: hotel-reservation/charts/reservation/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    helm.sh/chart: reservation-0.1.0
+    app.kubernetes.io/name: reservation
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "0.1.0"
+    app.kubernetes.io/managed-by: Helm
+    service: reservation-release-name-hotelres
+  name: reservation-release-name-hotelres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: reservation
+      app.kubernetes.io/instance: release-name
+      service: reservation-release-name-hotelres
+      app: reservation-release-name-hotelres
+  template:
+    metadata:
+      labels:
+        helm.sh/chart: reservation-0.1.0
+        app.kubernetes.io/name: reservation
+        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/version: "0.1.0"
+        app.kubernetes.io/managed-by: Helm
+        service: reservation-release-name-hotelres
+        app: reservation-release-name-hotelres
+    spec:
+      containers:
+      - name: "hotel-reserv-reservation"
+        image: docker.io/divyanshus/hotelreservation:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8087
+        env:
+          - name: TLS
+            value: "0"
+          - name: LOG_LEVEL
+            value: "INFO"
+          - name: JAEGER_SAMPLE_RATIO
+            value: "0.01"
+          - name: MEMC_TIMEOUT
+            value: "2"
+          - name: GC
+            value: "100"
+        command:
+        - reservation        
+        volumeMounts:
+        - name: reservation-release-name-hotelres-config
+          mountPath: /go/src/github.com/harlow/go-micro-services/config.json
+          subPath: service-config.json
+      volumes:
+      - name: reservation-release-name-hotelres-config
+        configMap:
+          name: reservation-release-name-hotelres
+      hostname: reservation-release-name-hotelres
+      restartPolicy: Always
+      affinity:
+        {}
+      tolerations:
+        []
+      nodeSelector:
+        {}
+---
+# Source: hotel-reservation/charts/search/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    helm.sh/chart: search-0.1.0
+    app.kubernetes.io/name: search
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "0.1.0"
+    app.kubernetes.io/managed-by: Helm
+    service: search-release-name-hotelres
+  name: search-release-name-hotelres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: search
+      app.kubernetes.io/instance: release-name
+      service: search-release-name-hotelres
+      app: search-release-name-hotelres
+  template:
+    metadata:
+      labels:
+        helm.sh/chart: search-0.1.0
+        app.kubernetes.io/name: search
+        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/version: "0.1.0"
+        app.kubernetes.io/managed-by: Helm
+        service: search-release-name-hotelres
+        app: search-release-name-hotelres
+    spec:
+      containers:
+      - name: "hotel-reserv-search"
+        image: docker.io/divyanshus/hotelreservation:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8082
+        env:
+          - name: TLS
+            value: "0"
+          - name: LOG_LEVEL
+            value: "INFO"
+          - name: JAEGER_SAMPLE_RATIO
+            value: "0.01"
+          - name: MEMC_TIMEOUT
+            value: "2"
+          - name: GC
+            value: "100"
+        command:
+        - search        
+        volumeMounts:
+        - name: search-release-name-hotelres-config
+          mountPath: /go/src/github.com/harlow/go-micro-services/config.json
+          subPath: service-config.json
+      volumes:
+      - name: search-release-name-hotelres-config
+        configMap:
+          name: search-release-name-hotelres
+      hostname: search-release-name-hotelres
+      restartPolicy: Always
+      affinity:
+        {}
+      tolerations:
+        []
+      nodeSelector:
+        {}
+---
+# Source: hotel-reservation/charts/user/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    helm.sh/chart: user-0.1.0
+    app.kubernetes.io/name: user
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "0.1.0"
+    app.kubernetes.io/managed-by: Helm
+    service: user-release-name-hotelres
+  name: user-release-name-hotelres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: user
+      app.kubernetes.io/instance: release-name
+      service: user-release-name-hotelres
+      app: user-release-name-hotelres
+  template:
+    metadata:
+      labels:
+        helm.sh/chart: user-0.1.0
+        app.kubernetes.io/name: user
+        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/version: "0.1.0"
+        app.kubernetes.io/managed-by: Helm
+        service: user-release-name-hotelres
+        app: user-release-name-hotelres
+    spec:
+      containers:
+      - name: "hotel-reserv-user"
+        image: docker.io/divyanshus/hotelreservation:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8086
+        env:
+          - name: TLS
+            value: "0"
+          - name: LOG_LEVEL
+            value: "INFO"
+          - name: JAEGER_SAMPLE_RATIO
+            value: "0.01"
+          - name: MEMC_TIMEOUT
+            value: "2"
+          - name: GC
+            value: "100"
+        command:
+        - user        
+        volumeMounts:
+        - name: user-release-name-hotelres-config
+          mountPath: /go/src/github.com/harlow/go-micro-services/config.json
+          subPath: service-config.json
+      volumes:
+      - name: user-release-name-hotelres-config
+        configMap:
+          name: user-release-name-hotelres
+      hostname: user-release-name-hotelres
+      restartPolicy: Always
+      affinity:
+        {}
+      tolerations:
+        []
+      nodeSelector:
+        {}

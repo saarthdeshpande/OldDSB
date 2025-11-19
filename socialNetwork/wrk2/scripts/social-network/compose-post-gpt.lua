@@ -32,7 +32,7 @@ init = function(args)
   local co = coroutine.running()
   local co_str = tostring(co)
   local thread_id = tonumber(string.match(co_str, "thread: 0x%x+ (%d+)")) or math.random(10000, 99999)
-  rps_file_path = string.format("cpu_memory_/rps_%d.txt", thread_id)
+  rps_file_path = string.format("cpu_memory_/rps.txt", thread_id)
 end
 
 local function percentile(sorted, p)
@@ -67,7 +67,7 @@ local function flush_rps_file()
       local p99 = percentile(lat_list, 0.99)
       local avg = avg_of(lat_list)
       table.insert(parts, string.format(
-        "%s_rps:%.1f;%s_p95:%.1f;%s_p99:%.1f;%s_avg:%.1f",
+        "%s_rps: %.1f; %s_p95: %.1f; %s_p99: %.1f; %s_avg: %.1f",
         key, rps, key, p95, key, p99, key, avg
       ))
     end
@@ -156,7 +156,7 @@ request = function()
   media_types = media_types:sub(1, #media_types - 1) .. "]"
 
   local method = "POST"
-  local path = "http://localhost:8080/wrk2-api/post/compose"
+  local path = "/wrk2-api/post/compose"
   local headers = {}
   local body
   headers["Content-Type"] = "application/x-www-form-urlencoded"

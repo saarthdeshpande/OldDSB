@@ -35,7 +35,8 @@ yaml_width = 4096
 def create_hpa_yaml(args):
     global microservices
     DEF_all = {"req": {"cpu": "500m", "memory": "128Mi"}, "lim": {"cpu": "1000m", "memory": "256Mi"}}
-
+    DEF_memcached = {"req": {"cpu": "1000m", "memory": "256Mi"}, "lim": {"cpu": "1000m", "memory": "256Mi"}}
+    # DEF_mongo = {"req": {"cpu": "2000m", "memory": "512Mi"}, "lim": {"cpu": "2000m", "memory": "512Mi"}}
     # Build metrics list from args
     metrics = []
     if getattr(args, "cpu", False):
@@ -56,7 +57,11 @@ def create_hpa_yaml(args):
         for fn in glob.glob(f"{folder}/*.yaml"):
             with open(fn, "r") as f:
                 docs = list(yaml.safe_load_all(f))
-
+            DEF = DEF_all
+            if 'memcached-rate-deployment' in fn:
+                DEF = DEF_memcached
+            # if 'mongodb' in fn:
+            #     DEF = DEF_mongo
             # augment Deployment docs with default resources if missing
             for d in docs:
                 if isinstance(d, dict) and d.get("kind") == "Deployment":
@@ -65,10 +70,10 @@ def create_hpa_yaml(args):
                         for c in (pod_spec.get(k, []) or []):
                             r = c.setdefault("resources", {})
                             rq, lm = r.setdefault("requests", {}), r.setdefault("limits", {})
-                            rq.setdefault("cpu", DEF_all["req"]["cpu"])
-                            rq.setdefault("memory", DEF_all["req"]["memory"])
-                            lm.setdefault("cpu", DEF_all["lim"]["cpu"])
-                            lm.setdefault("memory", DEF_all["lim"]["memory"])
+                            rq.setdefault("cpu", DEF["req"]["cpu"])
+                            rq.setdefault("memory", DEF["req"]["memory"])
+                            lm.setdefault("cpu", DEF["lim"]["cpu"])
+                            lm.setdefault("memory", DEF["lim"]["memory"])
 
             # add an HPA for Kompose-style Deployments when metrics requested
             if metrics and fn.endswith("deployment.yaml") and "mongodb" not in fn:
@@ -200,7 +205,6 @@ def main():
 
     args = parser.parse_args()
     create_hpa_yaml(args)
-    exit(0)
     metric = ""
     if args.cpu is True:
         metric += "cpu_"
@@ -246,7 +250,7 @@ def main():
         # TODO: configure number of threads and T* number of rps entries
         command = shlex.split(f'wrk -t1 -c20 -d{args.time} -R200 -s {wrk2file_path} http://{frontend_ip}')
         wrk2Process = subprocess.Popen(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        time.sleep(60)
+        time.sleep(15)
         print("Wrk process completed.")
 
         for thread in threads:

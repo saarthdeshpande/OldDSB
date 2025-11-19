@@ -12,7 +12,7 @@ from utils import interval_string_to_seconds
 
 hpa_config_file = "hpa_config.yaml"
 wrk2file_path = "../wrk2/scripts/social-network/compose-post-gpt.lua"
-frontend_ip = "128.83.143.75:32000"  # <b>node's</b> internal IP
+frontend_ip = "128.110.96.91:32000"  # <b>node's</b> internal IP
 
 microservices = []
 
@@ -35,7 +35,7 @@ yaml_width = 4096
 def create_hpa_yaml(args):
     global microservices
     DEF_all = {"req":{"cpu":"500m","memory":"128Mi"},"lim":{"cpu":"1000m","memory":"256Mi"}}
-    DEF_redis = {"req":{"cpu":"500m","memory":"512Mi"},"lim":{"cpu":"1000m","memory":"1Gi"}}
+    # DEF_redis = {"req":{"cpu":"1000m","memory":"128Mi"},"lim":{"cpu":"2000m","memory":"256Mi"}}
     metrics = []
     if getattr(args, "cpu", False):
         metrics.append({'type':'Resource','resource':{'name':'cpu','target':{'type':'Utilization','averageUtilization':50}}})
@@ -48,14 +48,14 @@ def create_hpa_yaml(args):
             with open(fn) as f:
                 docs = list(yaml.safe_load_all(f))
             if fn.endswith('deployment.yaml') and 'mongodb' not in fn:
-                if 'user-timeline-redis' in fn:
-                    DEF = DEF_redis
-                else:
-                    DEF = DEF_all
+                # if '-redis' in fn:
+                #    DEF = DEF_redis
+                # else:
+                DEF = DEF_all
                 # if 'home-timeline' in fn or 'nginx' in fn:
                 #     pMin, pMax = 1, 10
                 # else:
-                pMin, pMax = 1, 3
+                pMin, pMax = 1, 20
                 for d in docs:
                     if isinstance(d, dict) and d.get('kind') == 'Deployment':
                         spec = (((d.get('spec') or {}).get('template') or {}).get('spec') or {})
@@ -225,11 +225,11 @@ def main():
 
     try:
         # wrk2Cmd = f"/usr/local/bin/wrk -t4 -c100 -d{args.time} -R500 -s {wrk2file_path} http://{frontend_ip} -- {metric}"
-        print("Applying wrk. Sleeping for 60s.")
+        print("Applying wrk. Sleeping for 15s.")
         # TODO: configure number of threads and T* number of rps entries
-        command = shlex.split(f'wrk -t1 -c20 -d{args.time} -R200 -s {wrk2file_path} http://{frontend_ip}')
+        command = shlex.split(f'wrk -t1 -c200 -d{args.time} -R500 -s {wrk2file_path} http://{frontend_ip}')
         wrk2Process = subprocess.Popen(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        time.sleep(60)
+        time.sleep(15)
         print("Wrk process completed.")
 
         for thread in threads:

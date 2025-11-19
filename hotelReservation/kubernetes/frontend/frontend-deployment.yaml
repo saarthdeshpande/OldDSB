@@ -25,4 +25,11 @@ spec:
               cpu: 500m
             limits:
               cpu: 1000m
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 5000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 5
       restartPolicy: Always

@@ -126,7 +126,6 @@ metadata:
     io.kompose.service: geo
   name: geo
 spec:
-  replicas: 1
   selector:
     matchLabels:
       io.kompose.service: geo
@@ -215,7 +214,6 @@ metadata:
     io.kompose.service: search
   name: search
 spec:
-  replicas: 1
   selector:
     matchLabels:
       io.kompose.service: search
@@ -382,7 +380,6 @@ metadata:
     io.kompose.service: recommendation
   name: recommendation
 spec:
-  replicas: 1
   selector:
     matchLabels:
       io.kompose.service: recommendation
@@ -518,7 +515,6 @@ metadata:
     io.kompose.service: jaeger
   name: jaeger
 spec:
-  replicas: 1
   selector:
     matchLabels:
       io.kompose.service: jaeger
@@ -721,7 +717,6 @@ metadata:
     io.kompose.service: rate
   name: rate
 spec:
-  replicas: 1
   selector:
     matchLabels:
       io.kompose.service: rate
@@ -802,7 +797,6 @@ metadata:
     io.kompose.service: memcached-rate
   name: memcached-rate
 spec:
-  replicas: 1
   selector:
     matchLabels:
       io.kompose.service: memcached-rate
@@ -904,7 +898,6 @@ metadata:
     io.kompose.service: consul
   name: consul
 spec:
-  replicas: 1
   selector:
     matchLabels:
       io.kompose.service: consul
@@ -975,7 +968,6 @@ metadata:
     io.kompose.service: user
   name: user
 spec:
-  replicas: 1
   selector:
     matchLabels:
       io.kompose.service: user
@@ -1162,7 +1154,6 @@ metadata:
     io.kompose.service: profile
   name: profile
 spec:
-  replicas: 1
   selector:
     matchLabels:
       io.kompose.service: profile
@@ -1349,7 +1340,6 @@ metadata:
     io.kompose.service: memcached-profile
   name: memcached-profile
 spec:
-  replicas: 1
   selector:
     matchLabels:
       io.kompose.service: memcached-profile
@@ -1437,7 +1427,6 @@ metadata:
     io.kompose.service: frontend
   name: frontend
 spec:
-  replicas: 1
   selector:
     matchLabels:
       io.kompose.service: frontend
@@ -1520,7 +1509,6 @@ metadata:
     io.kompose.service: reservation
   name: reservation
 spec:
-  replicas: 1
   selector:
     matchLabels:
       io.kompose.service: reservation
@@ -1715,7 +1703,6 @@ metadata:
     io.kompose.service: memcached-reserve
   name: memcached-reserve
 spec:
-  replicas: 1
   selector:
     matchLabels:
       io.kompose.service: memcached-reserve
